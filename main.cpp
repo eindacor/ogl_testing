@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-	string data_path = "C:\\Users\\jpollack\\Documents\\opengl_shader_test\\";
+	string data_path = "C:\\Users\\jpollack\\Documents\\github\\ogl_testing\\";
 	//string data_path = "J:\\Random Shite\\model_data_bin\\";
 	string text_file = data_path + "text_template.bmp";
 	string vert_file = data_path + "vertex_shader.glsl";
@@ -14,8 +14,8 @@ int main(int argc, char* argv[])
 	shared_ptr<texture_handler> textures(new texture_handler(data_path));
 	shared_ptr<ogl_camera_free> camera(new ogl_camera_free(keys, context, vec3(0.0f, eye_level, 3.0f), 45.0f));
 
-	vector<mesh_data> model_meshes = jep::generateMeshes((data_path + "refresher_model.obj").c_str());
-	map<string, boost::shared_ptr<material_data> > model_materials = jep::generateMaterials((data_path + "refresher_model.mtl").c_str(), textures, context);
+	vector<mesh_data> model_meshes = jep::generateMeshes((data_path + "housing.obj").c_str());
+	map<string, boost::shared_ptr<material_data> > model_materials = jep::generateMaterials((data_path + "housing.mtl").c_str(), textures, context);
 
 	vector< shared_ptr<jep::ogl_data> > environment_mesh_data;
 
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 	//textures->addTexture("normal_test", data_path + "normal_test.bmp");
 
 	model_materials.at("lambert3SG")->setTextureData("normal", "core_normals");
-	model_materials.at("lambert3SG")->setTextureData("specular", "specular");
+	model_materials.at("lambert3SG")->setTextureData("specular", "core_bump.bmp");
 
 	for (const auto &i : model_meshes)
 	{
@@ -63,12 +63,6 @@ int main(int argc, char* argv[])
 	float light_rotation_radians = 0.01;
 	float current_radians = 0.0;
 	mat4 light_rotation_matrix = glm::rotate(mat4(1.0), current_radians, vec3(0.0, 1.0, 0.0));
-
-	bool diffuse_on = false;
-	bool bump_on = false;
-	bool normal_on = false;
-	bool transparency_on = false;
-	bool specular_on = false;
 
 	while (!finished)
 	{
