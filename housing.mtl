@@ -1,110 +1,160 @@
-#
-## Alias OBJ Material File
-# Exported from SketchUp, (c) 2000-2006 Google, Inc.
-
-newmtl Color_007
-Ka 0.000000 0.000000 0.000000
-Kd 0.227451 0.227451 0.227451
-Ks 0.330000 0.330000 0.330000
-
-newmtl Color_A06
-Ka 0.000000 0.000000 0.000000
-Kd 0.800000 0.000000 0.000000
-Ks 0.330000 0.330000 0.330000
-
-newmtl FrontColor
-Ka 0.000000 0.000000 0.000000
-Kd 1.000000 1.000000 1.000000
-Ks 0.330000 0.330000 0.330000
-
-newmtl _Brown_
-Ka 0.000000 0.000000 0.000000
-Kd 0.466667 0.345098 0.211765
-Ks 0.330000 0.330000 0.330000
-
-newmtl Translucent_Glass_Gray
-Ka 0.000000 0.000000 0.000000
-Kd 0.580392 0.650980 0.709804
-Ks 0.330000 0.330000 0.330000
-d 0.390000
-
-newmtl _Color_002_1
-Ka 0.000000 0.000000 0.000000
-Kd 0.776471 0.776471 0.776471
-Ks 0.330000 0.330000 0.330000
-
-newmtl Color_A05
-Ka 0.000000 0.000000 0.000000
-Kd 1.000000 0.800000 0.800000
-Ks 0.330000 0.330000 0.330000
-
-newmtl Color_005
-Ka 0.000000 0.000000 0.000000
-Kd 0.447059 0.447059 0.447059
-Ks 0.330000 0.330000 0.330000
-
-newmtl Concrete_Form_6x12
-Ka 0.000000 0.000000 0.000000
-Kd 0.733333 0.733333 0.729412
-Ks 0.330000 0.330000 0.330000
-map_Kd GSD_Beyond_Housing_05/Concrete_Form_6x12.jpg
-
-newmtl Cladding_Siding_Tan
-Ka 0.000000 0.000000 0.000000
-Kd 0.580392 0.635294 0.372549
-Ks 0.330000 0.330000 0.330000
-map_Kd GSD_Beyond_Housing_05/Cladding_Siding_Tan.jpg
-
-newmtl Color_000
-Ka 0.000000 0.000000 0.000000
-Kd 1.000000 1.000000 1.000000
-Ks 0.330000 0.330000 0.330000
-
-newmtl flat_grain_beam_01
-Ka 0.000000 0.000000 0.000000
-Kd 0.800000 0.639216 0.639216
-Ks 0.330000 0.330000 0.330000
-
-newmtl end_gain_beam_01
-Ka 0.000000 0.000000 0.000000
-Kd 1.000000 0.000000 0.000000
-Ks 0.330000 0.330000 0.330000
-
-newmtl Brick_Concrete_Stacked
-Ka 0.000000 0.000000 0.000000
-Kd 0.737255 0.737255 0.737255
-Ks 0.330000 0.330000 0.330000
-map_Kd GSD_Beyond_Housing_05/Brick_Concrete_Stacked.jpg
-
-newmtl Chrome_Metal
-Ka 0.000000 0.000000 0.000000
-Kd 0.968627 0.968627 0.968627
-Ks 0.330000 0.330000 0.330000
-
-newmtl Color_006
-Ka 0.000000 0.000000 0.000000
-Kd 0.337255 0.337255 0.337255
-Ks 0.330000 0.330000 0.330000
-
-newmtl Roofing_Shingles_GAF_Marquis
-Ka 0.000000 0.000000 0.000000
-Kd 0.498039 0.498039 0.498039
-Ks 0.330000 0.330000 0.330000
-map_Kd GSD_Beyond_Housing_05/Roofing_Shingles_GAF_Marquis.jpg
-
-newmtl Metal_Corrogated_Shiny
-Ka 0.000000 0.000000 0.000000
-Kd 0.756863 0.756863 0.756863
-Ks 0.330000 0.330000 0.330000
-map_Kd GSD_Beyond_Housing_05/Metal_Corrogated_Shiny.jpg
-
-newmtl _Black_
-Ka 0.000000 0.000000 0.000000
-Kd 0.000000 0.000000 0.000000
-Ks 0.330000 0.330000 0.330000
-
-newmtl DrkBrass
-Ka 0.000000 0.000000 0.000000
-Kd 0.392157 0.294118 0.196078
-Ks 0.330000 0.330000 0.330000
-
+newmtl housing:Brick_Concrete_Stacked
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Chrome_Metal
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Cladding_Siding_Tan
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Color_000
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Color_005
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Color_006
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Color_007
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Color_A05
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Color_A06
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Concrete_Form_6x12
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:DrkBrass
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:FrontColor
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Metal_Corrogated_Shiny
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Roofing_Shingles_GAF_Marquis
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:Translucent_Glass_Gray
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:_Black_
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:_Brown_
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:_Color_002_1
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:end_gain_beam_01
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl housing:flat_grain_beam_01
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00

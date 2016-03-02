@@ -2,8 +2,8 @@
 
 int main(int argc, char* argv[])
 {
-	string data_path = "C:\\Users\\jpollack\\Documents\\github\\ogl_testing\\";
-	//string data_path = "J:\\Random Shite\\model_data_bin\\";
+	//string data_path = "C:\\Users\\jpollack\\Documents\\github\\ogl_testing\\";
+	string data_path = "J:\\Github\\ogl_testing\\";
 	string text_file = data_path + "text_template.bmp";
 	string vert_file = data_path + "vertex_shader.glsl";
 	string frag_file = data_path + "fragment_shader.glsl";
@@ -14,8 +14,8 @@ int main(int argc, char* argv[])
 	shared_ptr<texture_handler> textures(new texture_handler(data_path));
 	shared_ptr<ogl_camera_free> camera(new ogl_camera_free(keys, context, vec3(0.0f, eye_level, 3.0f), 45.0f));
 
-	vector<mesh_data> model_meshes = jep::generateMeshes((data_path + "housing.obj").c_str());
-	map<string, boost::shared_ptr<material_data> > model_materials = jep::generateMaterials((data_path + "housing.mtl").c_str(), textures, context);
+	vector<mesh_data> model_meshes = jep::generateMeshes((data_path + "vase.obj").c_str());
+	map<string, boost::shared_ptr<material_data> > model_materials = jep::generateMaterials((data_path + "vase.mtl").c_str(), textures, context);
 
 	vector< shared_ptr<jep::ogl_data> > environment_mesh_data;
 
@@ -23,6 +23,7 @@ int main(int argc, char* argv[])
 	textures->addTexture("transparency", data_path + "transparency.bmp");
 	textures->addTexture("brick_normals", data_path + "brick_normals.bmp");
 	textures->addTexture("specular", data_path + "specular.bmp");
+	textures->addTexture("vase_specular", data_path + "vase_specular.bmp");
 	//textures->addTexture("00", data_path + "normal_00.bmp");
 	//textures->addTexture("01", data_path + "normal_01.bmp");
 	//textures->addTexture("02", data_path + "normal_02.bmp");
@@ -32,8 +33,10 @@ int main(int argc, char* argv[])
 	//textures->addTexture("cloth_normal", data_path + "cloth_normal.bmp");
 	//textures->addTexture("normal_test", data_path + "normal_test.bmp");
 
-	model_materials.at("lambert3SG")->setTextureData("normal", "core_normals");
-	model_materials.at("lambert3SG")->setTextureData("specular", "core_bump.bmp");
+	model_materials.at("lambert2SG")->setTextureData("specular", "vase_specular");
+	model_materials.at("lambert2SG")->setSpecularValue(0.5);
+	model_materials.at("lambert2SG")->setSpecularDampening(30);
+	model_materials.at("lambert3SG")->setTextureData("normal", "wood_normal.bmp");
 
 	for (const auto &i : model_meshes)
 	{

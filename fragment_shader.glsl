@@ -35,7 +35,7 @@ uniform mat4 view_matrix;
 uniform mat4 light_transform;
 
 //light parameters
-vec3 light_position = vec3(200.0, 200.0, 200.0);
+vec3 light_position = vec3(0.0, 50.0, 20.0);
 vec3 light_color = vec3(1.0, 1.0, 1.0);
 float light_power = 1.0;
 float ambient_light_value = .2;
