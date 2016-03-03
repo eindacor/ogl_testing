@@ -16,6 +16,7 @@ in vec3 vertex_position_worldspace;
 uniform float bump_value;
 uniform int specular_dampening;
 uniform float specular_value;
+uniform float global_transparency;
 uniform vec3 specular_color;
 uniform vec3 default_diffuse_color;
 uniform int enable_diffuse_map;
@@ -23,6 +24,7 @@ uniform int enable_bump_map;
 uniform int enable_normal_map;
 uniform int enable_transparency_map;
 uniform int enable_specular_map;
+uniform int specular_ignores_transparency;
 uniform sampler2D diffuseMap;
 uniform sampler2D normalMap;
 uniform sampler2D bumpMap;
@@ -92,6 +94,8 @@ void main()
 
 	else modified_color += ambient_light;
 
+	float specular_presence = 0.0;
+	vec3 final_specular_addition = vec3(0.0, 0.0, 0.0);
 	if (geometry_cosTheta > 0) {
 		float new_specular_value = specular_value;
 		if (enable_specular_map > 0) {
@@ -103,14 +107,9 @@ void main()
 		float reflection_value = dot(normalize(reflected_light_direction), normalize(eyedirection));
 		reflection_value = clamp(reflection_value, 0.0, 1.0);
 		float damp_factor = pow(reflection_value, specular_dampening);
-		vec3 final_specular = damp_factor * specular_color * new_specular_value;
-
-		modified_color += final_specular;
+		specular_presence = damp_factor * new_specular_value;
+		final_specular_addition = specular_presence * specular_color;
 	}
-
-	modified_color.x = clamp(modified_color.x, ambient_light.x, 1.0);
-	modified_color.y = clamp(modified_color.y, ambient_light.y, 1.0);
-	modified_color.z = clamp(modified_color.z, ambient_light.z, 1.0);
 
 	if (enable_transparency_map > 0)
 	{
@@ -118,7 +117,20 @@ void main()
 		transparency = 1 - ((transparency_color.x + transparency_color.y + transparency_color.z) / 3.0);
 	}
 
-	else transparency = 0.0;
+	else transparency = global_transparency;
 
-	output_color = vec4(modified_color, 1.0 - transparency);
+	modified_color.x = clamp(modified_color.x, ambient_light.x, 1.0);
+	modified_color.y = clamp(modified_color.y, ambient_light.y, 1.0);
+	modified_color.z = clamp(modified_color.z, ambient_light.z, 1.0);
+
+	// TODO refactor code below
+	// test materials with global specular color set to 0
+	float opaqueness = 1.0 - transparency;
+	if (specular_ignores_transparency > 0)
+	{
+		float final_opaqueness = opaqueness + specular_presence;
+		output_color = vec4(vec3(modified_color * opaqueness + final_specular_addition), final_opaqueness);
+	}
+
+	else output_color = vec4(vec3(modified_color + final_specular_addition), opaqueness);
 }
