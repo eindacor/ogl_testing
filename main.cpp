@@ -21,11 +21,11 @@ int main(int argc, char* argv[])
 
 	glCullFace(GL_BACK);
 
-	textures->addTexture("core_normals", data_path + "core_normals.bmp");
-	textures->addTexture("transparency", data_path + "transparency.bmp");
-	textures->addTexture("brick_normals", data_path + "brick_normals.bmp");
-	textures->addTexture("specular", data_path + "specular.bmp");
-	textures->addTexture("vase_specular", data_path + "vase_specular.bmp");
+	textures->addTextureByFilename("core_normals", "core_normals.bmp");
+	textures->addTextureByFilename("transparency", "transparency.bmp");
+	textures->addTextureByFilename("brick_normals", "brick_normals.bmp");
+	textures->addTextureByFilename("specular", "specular.bmp");
+	textures->addTextureByFilename("vase_specular", "vase_specular.bmp");
 
 	for (const auto &i : model_meshes)
 	{
@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 	}
 	
 	boost::shared_ptr<material_data> vase_material = model_materials.at("lambert2SG");
-	vase_material->setTextureData("normal", "vase_specular.bmp");
+	vase_material->setTextureData("specular", "vase_specular");
 
 	glfwSetTime(0);
 	float render_fps = 60.0f;
