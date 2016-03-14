@@ -14,8 +14,8 @@ int main(int argc, char* argv[])
 	shared_ptr<texture_handler> textures(new texture_handler(data_path));
 	shared_ptr<ogl_camera_free> camera(new ogl_camera_free(keys, context, vec3(0.0f, eye_level, 1.0f), 45.0f));
 
-	vector<mesh_data> model_meshes = jep::generateMeshes((data_path + "core_logo_facenormals.obj").c_str());
-	map<string, boost::shared_ptr<material_data> > model_materials = jep::generateMaterials((data_path + "core_logo_facenormals.mtl").c_str(), textures, context);
+	vector<mesh_data> model_meshes = jep::generateMeshes((data_path + "hardcover_book.obj").c_str());
+	map<string, boost::shared_ptr<material_data> > model_materials = jep::generateMaterials((data_path + "hardcover_book.mtl").c_str(), textures, context);
 
 	vector< shared_ptr<jep::ogl_data> > environment_mesh_data;
 
@@ -26,6 +26,8 @@ int main(int argc, char* argv[])
 	textures->addTextureByFilename("brick_normals", "brick_normals.bmp");
 	textures->addTextureByFilename("specular", "specular.bmp");
 	textures->addTextureByFilename("vase_specular", "vase_specular.bmp");
+	textures->addTextureByFilename("book_specular", "hardcover_book_specular.bmp");
+	textures->addTextureByFilename("book_normals", "hardcover_book_normals.bmp");
 
 	for (const auto &i : model_meshes)
 	{
@@ -46,12 +48,9 @@ int main(int argc, char* argv[])
 		cout << i.getMeshlName() << ": " << i.getMaterialName() << endl;
 	}
 	
-	boost::shared_ptr<material_data> core_material = model_materials.at("lambert2SG");
-	core_material->setTextureData("normal", "core_normals");
-
-	boost::shared_ptr<material_data> shell_material = model_materials.at("lambert3SG");
-	shell_material->setTextureData("normal", "core_normals");
-	shell_material->setTextureData("bump", "lambert2SG_bump");
+	boost::shared_ptr<material_data> cover_material = model_materials.at("lambert3SG");
+	cover_material->setTextureData("normal", "book_normals");
+	cover_material->setTextureData("specular", "book_specular");
 
 	glfwSetTime(0);
 	float render_fps = 60.0f;
@@ -81,7 +80,7 @@ int main(int argc, char* argv[])
 
 			else current_radians = 0.0;
 
-			//light_rotation_matrix = glm::rotate(mat4(1.0), current_radians, vec3(0.0, 1.0, 0.0));
+			light_rotation_matrix = glm::rotate(mat4(1.0), current_radians, vec3(0.0, 1.0, 0.0));
 
 			glUniformMatrix4fv(context->getShaderGLint("light_transform"), 1, GL_FALSE, &light_rotation_matrix[0][0]);
 
