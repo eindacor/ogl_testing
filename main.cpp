@@ -2,8 +2,8 @@
 
 int main(int argc, char* argv[])
 {
-	//string data_path = "C:\\Users\\jpollack\\Documents\\github\\ogl_testing\\";
-	string data_path = "J:\\Github\\ogl_testing\\";
+	string data_path = "C:\\Users\\jpollack\\Documents\\github\\ogl_testing\\";
+	//string data_path = "J:\\Github\\ogl_testing\\";
 	string text_file = data_path + "text_template.bmp";
 	string vert_file = data_path + "vertex_shader.glsl";
 	string frag_file = data_path + "fragment_shader.glsl";
